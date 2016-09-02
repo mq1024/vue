@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue count-down component</title>
+	<meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<style type="text/css">
+
+	  .darkgrey{
+     
+        display: inline-block;
+        width:110px;
+        height: 42px;
+        line-height: 42px;
+        text-align: center;
+        margin:14px 0px;
+        background: #00f;
+        color: #fff;
+    }
+    .darkgrey:before{
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 200%;
+        top:0;
+        left:0;
+        border-left: 1px solid #d6e4ed;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: scale(0.5, 0.5);
+        transform: scale(0.5, 0.5);
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    b{
+        font-weight: normal;
+    }
+    .getcode {
+        display: inline-block;
+        line-height: inherit;
+    }
+    .waitcode{
+        color:#94a3ae;
+
+    }
+	</style>
+</head>
+<body id="app">
+<template id="countdown-template">
+    <div class="countdown-wrapper">
+       <span class="darkgrey">
+          <b v-if="current === 0" v-bind:class="{'countdown-active':active,'countdown-disabled':!active}" class="getcode" @click="clickBtn" v-text="normalText"></b>
+         
+          <b v-else class="waitcode">{{waitingText}} {{current}}s</b>
+        </span>
+    </div>
+</template>
+
+
+
+ <count-down :time=10 normal-text="获取验证码" waiting-text=""></count-down>
+
+<script  src="js/vue.js"></script>
+<script  src="js/index.js"></script>
+	
+</body>
+</html>
